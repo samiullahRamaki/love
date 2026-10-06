@@ -1,0 +1,1267 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width,
+               initial-scale=1,
+               maximum-scale=1,
+               user-scalable=no,
+               viewport-fit=cover"
+    />
+
+    <title>یه سورپرایز برای تو ❤️</title>
+
+    <style>
+      /* =========================
+   RESET
+========================= */
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      body {
+        font-family: Tahoma, Arial, sans-serif;
+
+        background: #170612;
+        color: white;
+      }
+
+      /* =========================
+   PAGE
+========================= */
+
+      .page {
+        position: fixed;
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+        height: 100dvh;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        overflow: hidden;
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      /* =========================
+   BACKGROUNDS
+========================= */
+
+      .background {
+        position: absolute;
+        inset: 0;
+
+        background: radial-gradient(
+          circle at 50% 25%,
+          #ff9bc4 0%,
+          #c82b68 38%,
+          #5d0d31 68%,
+          #170612 100%
+        );
+      }
+
+      .background::before {
+        content: "";
+
+        position: absolute;
+        width: 80vw;
+        height: 80vw;
+
+        max-width: 600px;
+        max-height: 600px;
+
+        left: 50%;
+        top: 30%;
+
+        transform: translate(-50%, -50%);
+
+        border-radius: 50%;
+
+        background: #ff74aa55;
+
+        filter: blur(70px);
+
+        animation: glow 4s ease-in-out infinite;
+      }
+
+      @keyframes glow {
+        0%,
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+        }
+
+        50% {
+          transform: translate(-50%, -50%) scale(1.2);
+        }
+      }
+
+      /* =========================
+   START PAGE
+========================= */
+
+      .start-content {
+        position: relative;
+        z-index: 5;
+
+        width: 92%;
+        max-width: 520px;
+
+        text-align: center;
+      }
+
+      .small-title {
+        font-size: 13px;
+        letter-spacing: 3px;
+
+        opacity: 0.8;
+
+        margin-bottom: 18px;
+      }
+
+      .start-title {
+        font-size: clamp(30px, 9vw, 48px);
+
+        line-height: 1.55;
+
+        margin-bottom: 8px;
+      }
+
+      .start-subtitle {
+        font-size: 17px;
+
+        opacity: 0.9;
+
+        margin-bottom: 20px;
+      }
+
+      /* =========================
+   GIFT
+========================= */
+
+      .gift-area {
+        width: 100%;
+        height: 350px;
+
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+
+        position: relative;
+      }
+
+      .gift {
+        position: relative;
+
+        width: min(70vw, 250px);
+
+        height: 170px;
+
+        border-radius: 18px;
+
+        background: linear-gradient(145deg, #ff79ad, #dc1765);
+
+        box-shadow:
+          0 30px 60px #0008,
+          inset 0 4px 8px #ffffff55;
+
+        cursor: pointer;
+
+        touch-action: manipulation;
+
+        transition: transform 0.25s ease;
+      }
+
+      .gift:active {
+        transform: scale(0.96);
+      }
+
+      /* vertical ribbon */
+
+      .gift::before {
+        content: "";
+
+        position: absolute;
+
+        width: 38px;
+        height: 100%;
+
+        left: 50%;
+        top: 0;
+
+        transform: translateX(-50%);
+
+        background: #ffd9e9;
+      }
+
+      /* horizontal ribbon */
+
+      .gift::after {
+        content: "";
+
+        position: absolute;
+
+        width: 100%;
+        height: 32px;
+
+        left: 0;
+        top: 48px;
+
+        background: #ffd9e9;
+      }
+
+      /* =========================
+   GIFT LID
+========================= */
+
+      .lid {
+        position: absolute;
+
+        z-index: 10;
+
+        left: -8px;
+        right: -8px;
+
+        top: -18px;
+
+        height: 43px;
+
+        border-radius: 13px;
+
+        background: linear-gradient(145deg, #ff9ac4, #e72d76);
+
+        box-shadow: 0 10px 15px #0005;
+
+        transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .gift.open .lid {
+        transform: translateY(-105px) rotate(-5deg);
+      }
+
+      /* =========================
+   CAT
+========================= */
+
+      .cat {
+        position: absolute;
+
+        z-index: 20;
+
+        left: 85%;
+        top: -65%;
+
+        transform: translateX(-50%);
+
+        font-size: 75px;
+
+        animation: sleeping 2.4s ease-in-out infinite;
+
+        transition: transform 0.7s ease;
+      }
+
+      @keyframes sleeping {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+
+        50% {
+          transform: translateX(-50%) translateY(7px);
+        }
+      }
+
+      .gift.open .cat {
+        animation: none;
+
+        transform: translateX(-50%) translateY(-55px) scale(1.1);
+      }
+
+      /* =========================
+   BOW
+========================= */
+
+      .bow {
+        position: absolute;
+
+        z-index: 30;
+
+        left: 50%;
+        top: -58px;
+
+        transform: translateX(-50%);
+
+        font-size: 58px;
+      }
+
+      /* =========================
+   GIFT TEXT
+========================= */
+
+      .gift-text {
+        position: absolute;
+
+        z-index: 40;
+
+        bottom: 18px;
+
+        left: 0;
+        right: 0;
+
+        text-align: center;
+
+        font-size: 14px;
+
+        font-weight: bold;
+      }
+
+      /* =========================
+   HINT
+========================= */
+
+      .open-hint {
+        display: inline-block;
+
+        margin-top: 18px;
+
+        padding: 14px 25px;
+
+        border-radius: 50px;
+
+        background: #ff2779;
+
+        font-weight: bold;
+
+        box-shadow: 0 12px 30px #ff277955;
+      }
+
+      /* =========================
+   LOVE PAGE
+========================= */
+
+      #lovePage .background {
+        background: radial-gradient(
+          circle at 50% 35%,
+          #ff82ae,
+          #8c1647 52%,
+          #180611
+        );
+      }
+
+      /* =========================
+   CARD
+========================= */
+
+      .card {
+        position: relative;
+
+        z-index: 10;
+
+        width: 92%;
+        max-width: 520px;
+
+        padding: 30px 18px 25px;
+
+        border-radius: 32px;
+
+        background: #ffffff13;
+
+        border: 1px solid #ffffff2b;
+
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+
+        box-shadow: 0 25px 70px #0007;
+
+        text-align: center;
+      }
+
+      .card-title {
+        font-size: clamp(27px, 8vw, 42px);
+
+        line-height: 1.5;
+
+        margin-bottom: 12px;
+      }
+
+      .question {
+        min-height: 105px;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        justify-content: center;
+
+        font-size: clamp(20px, 6vw, 29px);
+
+        line-height: 1.8;
+
+        font-weight: bold;
+      }
+
+      .typed {
+        min-height: 45px;
+      }
+
+      /* =========================
+   BUTTON AREA
+========================= */
+
+      .buttons {
+        position: relative;
+
+        width: 100%;
+
+        height: 170px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 14px;
+      }
+
+      /* =========================
+   BUTTONS
+========================= */
+
+      .answer-button {
+        width: 135px;
+        height: 58px;
+
+        border: none;
+
+        border-radius: 50px;
+
+        color: white;
+
+        font-family: Tahoma, Arial, sans-serif;
+
+        font-size: 20px;
+
+        font-weight: bold;
+
+        cursor: pointer;
+
+        touch-action: manipulation;
+
+        user-select: none;
+        -webkit-user-select: none;
+
+        flex: none;
+      }
+
+      /* YES */
+
+      .yes-button {
+        background: linear-gradient(135deg, #ff5599, #ff0e62);
+
+        box-shadow: 0 12px 35px #ff126655;
+
+        transform-origin: center center;
+
+        transition: transform 0.18s ease;
+      }
+
+      /* NO */
+
+      .no-button {
+        background: #333;
+
+        box-shadow: 0 8px 25px #0007;
+
+        transition:
+          left 0.13s ease,
+          top 0.13s ease;
+      }
+
+      /*
+   بعد از شروع بازی
+   نخیر از حالت flex خارج می‌شود
+   و به بدنه (body) منتقل می‌شود
+   تا fixed نسبت به کل صفحه کار کند.
+*/
+
+      .no-button.running {
+        position: fixed;
+
+        z-index: 9999;
+
+        width: 135px;
+        height: 58px;
+
+        font-size: 18px;
+
+        margin: 0;
+      }
+
+      /* =========================
+   HEARTS
+========================= */
+
+      .hearts {
+        position: absolute;
+
+        inset: 0;
+
+        z-index: 2;
+
+        pointer-events: none;
+
+        overflow: hidden;
+      }
+
+      .heart {
+        position: fixed;
+
+        bottom: -70px;
+
+        pointer-events: none;
+
+        animation: heartUp linear forwards;
+      }
+
+      @keyframes heartUp {
+        0% {
+          transform: translateY(0) rotate(0deg);
+
+          opacity: 1;
+        }
+
+        100% {
+          transform: translateY(-120vh) rotate(360deg);
+
+          opacity: 0;
+        }
+      }
+
+      /* =========================
+   FINAL PAGE
+========================= */
+
+      #finalPage .background {
+        background: radial-gradient(
+          circle at 50% 30%,
+          #ff9dc5,
+          #861542 52%,
+          #160512
+        );
+      }
+
+      .final-card {
+        position: relative;
+
+        z-index: 10;
+
+        width: 92%;
+        max-width: 500px;
+
+        padding: 35px 20px;
+
+        border-radius: 34px;
+
+        background: #ffffff14;
+
+        border: 1px solid #ffffff2b;
+
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+
+        box-shadow: 0 25px 70px #0007;
+
+        text-align: center;
+      }
+
+      .big-heart {
+        font-size: 70px;
+
+        animation: heartbeat 1.1s infinite;
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.17);
+        }
+      }
+
+      .final-card h2 {
+        font-size: 29px;
+
+        line-height: 1.6;
+
+        margin: 12px 0;
+      }
+
+      .final-card p {
+        font-size: 18px;
+
+        line-height: 2;
+
+        color: #ffe8f2;
+
+        margin-bottom: 10px;
+      }
+
+      /* =========================
+   TELEGRAM
+========================= */
+
+      .telegram {
+        display: inline-block;
+
+        text-decoration: none;
+
+        color: white;
+
+        background: linear-gradient(135deg, #40bdf4, #1386c6);
+
+        padding: 16px 28px;
+
+        border-radius: 50px;
+
+        font-size: 18px;
+
+        font-weight: bold;
+
+        box-shadow: 0 12px 30px #1687c555;
+
+        margin-top: 8px;
+      }
+
+      .final-footer {
+        margin-top: 18px;
+
+        font-size: 13px;
+
+        opacity: 0.7;
+      }
+
+      /* =========================
+   SMALL SCREENS
+========================= */
+
+      @media (max-height: 680px) {
+        .gift-area {
+          height: 280px;
+        }
+
+        .gift {
+          height: 145px;
+        }
+
+        .cat {
+          font-size: 64px;
+        }
+
+        .start-title {
+          font-size: 28px;
+        }
+
+        .card {
+          padding-top: 22px;
+        }
+
+        .question {
+          min-height: 90px;
+        }
+
+        .buttons {
+          height: 145px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =====================================================
+     PAGE 1
+     GIFT
+===================================================== -->
+
+    <section id="startPage" class="page">
+      <div class="background"></div>
+
+      <div class="start-content">
+        <div class="small-title">♡ JUST FOR YOU ♡</div>
+
+        <h1 class="start-title">
+          یه سورپرایز کوچولو
+          <br />
+          برای عشقم💕
+        </h1>
+
+        <p class="start-subtitle">جعبه رو بازش کن عشقم❤️</p>
+
+        <div class="gift-area">
+          <div id="gift" class="gift" role="button" tabindex="0">
+            <div class="lid"></div>
+
+            <div class="bow">🎀</div>
+
+            <div class="cat">😺💤</div>
+
+            <div class="gift-text">برای خوشگلترین دختر دنیا❤️</div>
+          </div>
+        </div>
+
+        <!-- <div class="open-hint">بازش کن 💗</div> -->
+      </div>
+    </section>
+
+    <!-- =====================================================
+     PAGE 2
+     QUESTION
+===================================================== -->
+
+    <section id="lovePage" class="page hidden">
+      <div class="background"></div>
+
+      <div id="hearts" class="hearts"></div>
+
+      <div class="card">
+        <div class="small-title">♡ FROM MY HEART ♡</div>
+
+        <h1 class="card-title">اینو ک میدونی چقدر</h1>
+
+        <div class="question">
+          <div id="typedText" class="typed"></div>
+
+          <div>
+            <p>
+              حالا
+              <br />
+              مال من میشی؟ 🥺❤️
+            </p>
+          </div>
+        </div>
+
+        <div id="buttonArea" class="buttons">
+          <!--
+                مهم:
+                هر دو دکمه در ابتدا کاملاً
+                هم اندازه هستند.
+            -->
+
+          <button id="yesButton" class="answer-button yes-button" type="button">
+            بله 💖
+          </button>
+
+          <button id="noButton" class="answer-button no-button" type="button">
+            نخیر 😜
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     PAGE 3
+     FINAL
+===================================================== -->
+
+    <section id="finalPage" class="page hidden">
+      <div class="background"></div>
+
+      <div id="finalHearts" class="hearts"></div>
+
+      <div class="final-card">
+        <div class="big-heart">💖</div>
+
+        <h2>می‌دونستم میگی بله! 🥹</h2>
+
+        <p>حالا بیا بله واقعی رو ت تلگرام برام بگو...</p>
+
+        <!--
+             اینجا آیدی تلگرام خودت را قرار بده.
+             مثال:
+             https://t.me/username
+        -->
+
+        <a
+          class="telegram"
+          href="https://t.me/sawee0"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          بریم تلگرام 💙
+        </a>
+
+        <div class="final-footer">همیشه یه گوشه از قلبم برای توئه ❤️</div>
+      </div>
+    </section>
+
+    <script>
+      /* =====================================================
+   ELEMENTS
+===================================================== */
+
+      const startPage = document.getElementById("startPage");
+
+      const lovePage = document.getElementById("lovePage");
+
+      const finalPage = document.getElementById("finalPage");
+
+      const gift = document.getElementById("gift");
+
+      const yesButton = document.getElementById("yesButton");
+
+      const noButton = document.getElementById("noButton");
+
+      const typedText = document.getElementById("typedText");
+
+      const buttonArea = document.getElementById("buttonArea");
+
+      /* =====================================================
+   STATE
+===================================================== */
+
+      let giftOpened = false;
+
+      let gameStarted = false;
+
+      let yesScale = 1;
+
+      /* =====================================================
+   PAGE FUNCTIONS
+===================================================== */
+
+      function showPage(page) {
+        page.classList.remove("hidden");
+      }
+
+      function hidePage(page) {
+        page.classList.add("hidden");
+      }
+
+      /* =====================================================
+   OPEN GIFT
+===================================================== */
+
+      function openGift() {
+        if (giftOpened) {
+          return;
+        }
+
+        giftOpened = true;
+
+        gift.classList.add("open");
+
+        setTimeout(function () {
+          hidePage(startPage);
+
+          showPage(lovePage);
+
+          startTyping();
+
+          createInitialHearts();
+        }, 750);
+      }
+
+      /* =====================================================
+   GIFT CLICK
+===================================================== */
+
+      gift.addEventListener("click", openGift);
+
+      /* =====================================================
+   KEYBOARD SUPPORT
+===================================================== */
+
+      gift.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+
+          openGift();
+        }
+      });
+
+      /* =====================================================
+   TYPING EFFECT
+===================================================== */
+
+      function startTyping() {
+        const text = "من عاشقتم ❤️";
+
+        let index = 0;
+
+        typedText.textContent = "";
+
+        const timer = setInterval(function () {
+          typedText.textContent = text.substring(0, index + 1);
+
+          index++;
+
+          if (index >= text.length) {
+            clearInterval(timer);
+          }
+        }, 90);
+      }
+
+      /* =====================================================
+   HEART
+===================================================== */
+
+      function createHeart(containerId) {
+        const container = document.getElementById(containerId);
+
+        if (!container) {
+          return;
+        }
+
+        const heart = document.createElement("span");
+
+        heart.className = "heart";
+
+        const heartList = ["❤️", "🧡", "💗", "💕", "💖", "💘", "💝"];
+
+        heart.textContent =
+          heartList[Math.floor(Math.random() * heartList.length)];
+
+        heart.style.left = Math.random() * 100 + "vw";
+
+        heart.style.fontSize = 18 + Math.random() * 30 + "px";
+
+        heart.style.animationDuration = 3 + Math.random() * 4 + "s";
+
+        container.appendChild(heart);
+
+        setTimeout(function () {
+          heart.remove();
+        }, 8000);
+      }
+
+      /* =====================================================
+   INITIAL HEARTS
+===================================================== */
+
+      function createInitialHearts() {
+        for (let i = 0; i < 60; i++) {
+          setTimeout(function () {
+            createHeart("hearts");
+          }, i * 35);
+        }
+      }
+
+      /* =====================================================
+   CONTINUOUS HEARTS
+===================================================== */
+
+      setInterval(function () {
+        if (!lovePage.classList.contains("hidden")) {
+          createHeart("hearts");
+        }
+      }, 550);
+
+      /* =====================================================
+   START GAME
+===================================================== */
+
+      function startGame() {
+        if (gameStarted) {
+          return;
+        }
+
+        gameStarted = true;
+
+        /*
+       خیلی مهم:
+
+       دکمه نخیر را از داخل کارت
+       (که backdrop-filter دارد و باعث می‌شود
+       position:fixed نسبت به کارت باشد نه صفحه)
+       جدا کرده و به body منتقل می‌کنیم.
+
+       این دقیقاً دلیل غیب شدن دکمه
+       در دسکتاپ بود.
+    */
+
+        document.body.appendChild(noButton);
+
+        noButton.classList.add("running");
+
+        /*
+       اولین فرار
+    */
+
+        moveNo();
+
+        /*
+       بله شروع به بزرگ شدن می‌کند.
+    */
+
+        growYes();
+      }
+
+      /* =====================================================
+   MOVE NO BUTTON
+   — همیشه داخل صفحه می‌ماند
+===================================================== */
+
+      function moveNo() {
+        if (lovePage.classList.contains("hidden")) {
+          return;
+        }
+
+        const margin = 12;
+
+        const buttonWidth = noButton.offsetWidth || 135;
+
+        const buttonHeight = noButton.offsetHeight || 58;
+
+        const vw = window.innerWidth;
+
+        const vh = window.innerHeight;
+
+        /*
+       حداکثر مختصات مجاز تا دکمه
+       هرگز از لبه‌ها بیرون نزند.
+    */
+
+        const maxX = Math.max(margin, vw - buttonWidth - margin);
+
+        const maxY = Math.max(margin, vh - buttonHeight - margin);
+
+        const x = margin + Math.random() * (maxX - margin);
+
+        const y = margin + Math.random() * (maxY - margin);
+
+        noButton.style.left = Math.round(x) + "px";
+
+        noButton.style.top = Math.round(y) + "px";
+      }
+
+      /* =====================================================
+   GROW YES
+===================================================== */
+
+      function growYes() {
+        yesScale += 0.16;
+
+        /*
+       حداکثر اندازه — به اندازه‌ای که
+       کل صفحه را نپوشاند.
+    */
+
+        if (yesScale > 3) {
+          yesScale = 3;
+        }
+
+        yesButton.style.transform = "scale(" + yesScale + ")";
+      }
+
+      /* =====================================================
+   NO BUTTON
+   FIRST ATTEMPT / RUN
+===================================================== */
+
+      function noAttempt(event) {
+        if (event) {
+          event.preventDefault();
+        }
+
+        /*
+       قبل از اولین تلاش،
+       هیچ فراری اتفاق نمی‌افتد.
+    */
+
+        if (!gameStarted) {
+          startGame();
+
+          return;
+        }
+
+        moveNo();
+
+        growYes();
+      }
+
+      /* =====================================================
+   POINTER (همه دستگاه‌ها)
+===================================================== */
+
+      noButton.addEventListener("pointerdown", noAttempt, {
+        passive: false,
+      });
+
+      /* =====================================================
+   MOUSE ENTER (دسکتاپ)
+===================================================== */
+
+      noButton.addEventListener("mouseenter", function () {
+        if (gameStarted) {
+          moveNo();
+
+          growYes();
+        }
+      });
+
+      /* =====================================================
+   MOUSE MOVE — فرار در دسکتاپ
+   وقتی موس نزدیک می‌شود دکمه فرار می‌کند
+   (دکمه از صفحه غیب نمی‌شود)
+===================================================== */
+
+      document.addEventListener("mousemove", function (event) {
+        if (!gameStarted) {
+          return;
+        }
+
+        if (lovePage.classList.contains("hidden")) {
+          return;
+        }
+
+        const rect = noButton.getBoundingClientRect();
+
+        const centerX = rect.left + rect.width / 2;
+
+        const centerY = rect.top + rect.height / 2;
+
+        const distance = Math.sqrt(
+          Math.pow(event.clientX - centerX, 2) +
+            Math.pow(event.clientY - centerY, 2),
+        );
+
+        /*
+           اگر موس به نخیر نزدیک شود،
+           فرار کن — ولی روی صفحه می‌ماند.
+        */
+
+        if (distance < 120) {
+          moveNo();
+
+          growYes();
+        }
+      });
+
+      /* =====================================================
+   TOUCH MOVE — مخصوص موبایل
+===================================================== */
+
+      document.addEventListener(
+        "touchmove",
+        function (event) {
+          if (!gameStarted) {
+            return;
+          }
+
+          if (lovePage.classList.contains("hidden")) {
+            return;
+          }
+
+          if (!event.touches || event.touches.length === 0) {
+            return;
+          }
+
+          const touch = event.touches[0];
+
+          const rect = noButton.getBoundingClientRect();
+
+          const centerX = rect.left + rect.width / 2;
+
+          const centerY = rect.top + rect.height / 2;
+
+          const distance = Math.sqrt(
+            Math.pow(touch.clientX - centerX, 2) +
+              Math.pow(touch.clientY - centerY, 2),
+          );
+
+          if (distance < 105) {
+            moveNo();
+
+            growYes();
+          }
+        },
+        {
+          passive: true,
+        },
+      );
+
+      /* =====================================================
+   YES BUTTON
+===================================================== */
+
+      yesButton.addEventListener("click", function () {
+        /*
+           دکمه نخیر (که حالا روی body است)
+           را مخفی کن.
+        */
+
+        noButton.classList.add("hidden");
+
+        hidePage(lovePage);
+
+        showPage(finalPage);
+
+        /*
+           انفجار قلب
+        */
+
+        for (let i = 0; i < 100; i++) {
+          setTimeout(function () {
+            createHeart("finalHearts");
+          }, i * 25);
+        }
+      });
+
+      /* =====================================================
+   FINAL HEARTS
+===================================================== */
+
+      setInterval(function () {
+        if (!finalPage.classList.contains("hidden")) {
+          createHeart("finalHearts");
+        }
+      }, 400);
+
+      /* =====================================================
+   RESIZE — دکمه را داخل صفحه نگه می‌دارد
+===================================================== */
+
+      window.addEventListener("resize", function () {
+        if (gameStarted && !lovePage.classList.contains("hidden")) {
+          moveNo();
+        }
+      });
+
+      /* =====================================================
+   PREVENT DOUBLE TAP ZOOM
+===================================================== */
+
+      document.addEventListener(
+        "dblclick",
+        function (event) {
+          event.preventDefault();
+        },
+        {
+          passive: false,
+        },
+      );
+    </script>
+  </body>
+</html>
